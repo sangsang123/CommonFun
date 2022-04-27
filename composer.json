@@ -1,0 +1,18 @@
+{
+    "name": "sang/basicfun",
+    "description": "这个是基础辅助函数",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Sang\\Basicfun\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "sang",
+            "email": "958659893@qq.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
