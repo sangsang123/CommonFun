@@ -1,7 +1,7 @@
 <?php
-
-namespace Sang\Basicfun;
-
+namespace Sang\Basicfun\Common;
+use Illuminate\Support\Facades\Storage;
+use Cache;
 class CommonFun{
 	/**
    * 上传图片

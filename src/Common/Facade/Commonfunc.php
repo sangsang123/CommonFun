@@ -1,6 +1,5 @@
 <?php
-
-namespace Common\Facade;
+namespace Sang\Basicfun\Common\Facade;
 
 use Illuminate\Support\Facades\Facade;
 
