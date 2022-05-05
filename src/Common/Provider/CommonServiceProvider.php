@@ -11,4 +11,10 @@ class CommonServiceProvider extends ServiceProvider{
 			return new CommonFun();
 		});
 	}
+	public function boot()
+    {
+        $this->publishes([
+            __DIR__ . '/config/keyConfig.php' => config_path('keyConfig.php'),
+        ]);
+    }
 }
