@@ -149,7 +149,9 @@ class CommonFun{
    * @param string $key 加密key
    * @return string 返回加密后的字符串，失败返回false
    */
-  public static function encrypt($strContent,$key = config('KEY'),$iv =config('IV')){
+  public static function encrypt($strContent,$key ='',$iv =''){
+      $key =$key?$key:self::getconfig('KEY');
+      $iv =$iv?$iv:self::getconfig('IV');
       $strEncrypted = openssl_encrypt($strContent,"AES-128-CBC", $key,OPENSSL_RAW_DATA, $iv);
       return base64_encode($strEncrypted);
   }
@@ -160,8 +162,14 @@ class CommonFun{
    * @param string $key 加密key
    * @return string 返回解密后的字符串，失败返回false
    */
-  public static function decrypt($strEncryptCode,$key = config('KEY'),$iv =config('IV')){
+  public static function decrypt($strEncryptCode,$key ='',$iv =''){
+      $key =$key?$key:self::getconfig('KEY');
+      $iv =$iv?$iv:self::getconfig('IV');
       $strEncrypted = base64_decode($strEncryptCode);
       return openssl_decrypt($strEncrypted,"AES-128-CBC",$key,OPENSSL_RAW_DATA,$iv);
+  }
+  public static function getconfig($key){
+    $arr=config('keyConfig');
+    return $arr[$key]?$arr[$key]:'';
   }
 }
